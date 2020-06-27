@@ -1,23 +1,16 @@
 part of 'utils.dart';
 
-DeviceScreenType getDeviceType(MediaQueryData mediaQuery){
-  var orientation = mediaQuery.orientation;
+DeviceScreenType getDeviceType(MediaQueryData mediaQuery) {
+  double deviceWidth = mediaQuery.size.shortestSide;
 
-  double deviceWidth = 0;
-
-  if(orientation == Orientation.landscape){
-    deviceWidth = mediaQuery.size.width;
-  }
-  else{
-    deviceWidth = mediaQuery.size.height;
-  }
-  if(deviceWidth > 950) {
+  if (deviceWidth > 950) {
     return DeviceScreenType.Desktop;
   }
-  else if(deviceWidth > 600){
+  if (deviceWidth > 600) {
     return DeviceScreenType.Tablet;
   }
-  else{
+  if (deviceWidth < 600) {
     return DeviceScreenType.Mobile;
   }
+  return DeviceScreenType.Mobile;
 }
