@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:webprofile/models/models.dart';
-import 'package:webprofile/utils/utils.dart';
+part of 'responsive.dart';
 
 class ResponsiveBuilder extends StatelessWidget {
   final Widget Function(
@@ -9,8 +7,8 @@ class ResponsiveBuilder extends StatelessWidget {
   const ResponsiveBuilder({Key key, this.builder}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    var mediaQuery = MediaQuery.of(context);
     return LayoutBuilder(builder: (context, boxConstraint) {
+      var mediaQuery = MediaQuery.of(context);
       var sizinginformation = SizingInformation(
         deviceScreenType: getDeviceType(mediaQuery),
         screenSize: mediaQuery.size,

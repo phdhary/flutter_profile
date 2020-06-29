@@ -9,8 +9,6 @@ DeviceScreenType getDeviceType(MediaQueryData mediaQuery) {
   if (deviceWidth > 600) {
     return DeviceScreenType.Tablet;
   }
-  if (deviceWidth < 600) {
-    return DeviceScreenType.Mobile;
-  }
+  
   return DeviceScreenType.Mobile;
 }
